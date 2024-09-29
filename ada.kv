@@ -1,0 +1,63 @@
+<Mensaje>:
+    size: root.size
+    BoxLayout:
+        orientation:'vertical'
+        size: root.size
+        BoxLayout:
+            orientation: 'vertical'
+            Label: # Pregunta
+                text: root.texto
+    
+
+<Interface>:
+    prompt_input: input
+    carousel: scroll
+    send: btn_send
+    canvas: 
+        Color: 
+            rgba:48/255, 55/255, 66/255,1
+        Rectangle:
+            size: root.size
+    Carousel:
+        id: scroll
+        direction: 'bottom'
+        size: root.size
+
+        Mensaje:
+            texto: 'Bienvenido, me llamo ADA, en este apartado saldran tus mensajes conmigo'
+
+
+
+
+
+    GridLayout:
+        width: root.width
+        cols: 1
+        TextInput:
+            id: input
+            text: 'Ask something...'
+            font_size: 20
+            background_color: 179/255, 199/255, 232/255,1
+            foreground_color: 30/255, 34/255, 41/255,1
+        GridLayout:
+            cols: 2
+            height: 200
+            Button:
+                text: 'Record'
+                background_normal: ''
+                background_down: ''
+                background_color: 28/255, 58/255, 107/255,1   
+            Button:
+                id: btn_send
+                text: 'Send'
+                background_normal: ''
+                background_down: ''
+                background_color: 50/255, 88/255, 148/255,1
+                on_release: root.ask()
+
+                
+            
+        
+
+
+
