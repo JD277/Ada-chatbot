@@ -28,6 +28,7 @@ class Interface(Widget):
         mensaje.texto_pregunta.text = text
         mensaje.texto_respuesta.text = answer.text
         self.carousel.add_widget((mensaje))
+        self.prompt_input.text=''
     
     def on_window_resize(self, window, height, width):
         if Window.size[0] != 400:
