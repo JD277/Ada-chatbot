@@ -1,12 +1,46 @@
 <Mensaje>:
-    size: root.size
-    BoxLayout:
-        orientation:'vertical'
-        size: root.size
-        BoxLayout:
-            orientation: 'vertical'
-            Label: # Pregunta
-                text: root.texto
+    size_hint:1,None
+    size:root.size
+    texto_respuesta: res
+    texto_pregunta: pre
+    GridLayout:
+        cols:1
+        size_hint: 1,None
+        height: self.minimum_height
+        Label: # Pregunta
+            id: pre
+            padding: 10
+            text: 'Para hacer que el rectángulo de fondo ocupe el mismo tamaño que el texto en el Label, necesitas ajustar la propiedad size_hint_x del Label a None y calcular el ancho dinámico del texto para que el rectángulo se ajuste automáticamente.'        
+            size_hint: None,None
+            width: root.size[0] - 30
+            text_size:(root.size[0] - 30, None)
+            valign: 'middle'
+            bold: True
+            font_size: 18
+            height: self.texture_size[1] + 20
+            canvas.before:
+                Color:
+                    rgba: (0.2, 0.6, 0.8, 0.5)  # Color en formato RGBA
+                Rectangle:
+                    pos: self.pos
+                    size: root.width, self.height
+        Label: # Respuesta
+            id: res
+            padding: 10
+            text: 'Para hacer que el rectángulo de fondo ocupe el mismo tamaño que el texto en el Label, necesitas ajustar la propiedad size_hint_x del Label a None y calcular el ancho dinámico del texto para que el rectángulo se ajuste automáticamente.'        
+            size_hint: None,None
+            width: root.size[0] - 30
+            text_size:(root.size[0] - 30, None)
+            valign: 'middle'
+            bold: True
+            font_size: 18
+            height: self.texture_size[1] + 20
+            canvas.before:
+                Color:
+                    rgba: (0.2, 0.2, 0.8, 0.5)  # Color en formato RGBA
+                Rectangle:
+                    pos: self.pos
+                    size: root.width, self.height 
     
 
 <Interface>:
@@ -18,17 +52,24 @@
             rgba:48/255, 55/255, 66/255,1
         Rectangle:
             size: root.size
-    Carousel:
-        id: scroll
-        direction: 'bottom'
-        size: root.size
-
-        Mensaje:
-            texto: 'Bienvenido, me llamo ADA, en este apartado saldran tus mensajes conmigo'
+            pos: self.pos
 
 
-
-
+    ScrollView:
+        size_hint: None,None
+        size: root.size  
+        do_scroll_x: False
+        do_scroll_y: True   
+        padding:50
+        GridLayout:
+            id: scroll
+            cols: 1
+            size_hint_x: 1
+            size_hint_y: None  
+            height: self.minimum_height  
+            padding: 10
+            spacing: root.space
+                       
 
     GridLayout:
         width: root.width
