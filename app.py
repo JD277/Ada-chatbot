@@ -4,7 +4,7 @@ from openai import OpenAI
 from dotenv import load_dotenv
 
 load_dotenv()
-OPENAI_API_KEY="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"
+OPENAI_API_KEY="API_KEY"
 client = OpenAI(api_key=OPENAI_API_KEY)
 
 audio_file = open("audio.mp3","rb")

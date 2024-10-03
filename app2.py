@@ -1,7 +1,7 @@
 import os
 import google.generativeai as genai
 
-API_KEY= "AIzaSyADUxbPyDR8uDvdcG-NiDbyg01HfRvkTBE"
+API_KEY= "API_KEY"
 genai.configure(api_key=API_KEY)
 
 myfile = genai.upload_file("audio.mp3")
